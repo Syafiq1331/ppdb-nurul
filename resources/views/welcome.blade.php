@@ -165,33 +165,6 @@
             </div>
         </article>
 
-        <!-- Profile Guru -->
-        <article class="mb-24  mx-auto w-full">
-            <h4 class="my-10 text-center text-slate-700 text-xl">Profile Guru Pengajar</h4>
-            <div class="grid grid-cols-12 justify-center gap-x-4 gap-y-4 container mx-auto">
-                @foreach ($profileGuru as $index => $item)
-                    <div data-aos="fade-right"
-                        class="lg:w-full container mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-{{ $color[$index] }}-500 hover:bg-{{ $color[$index] }}-300 group hover:text-white shadow-lg ">
-
-                        <img src="{{ $item->foto_profile }}" alt="">
-
-                        <div class="mt-4 mb-2">
-                            <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">
-                                {{ $item->nama_depan }} {{ $item->nama_belakang }}
-                            </h1>
-                            <p class="text-slate-900/80 group-hover:text-white text-md mt-1">
-                                <strong>{{ $item->posisi_pekerjaan }}</strong>
-                            </p>
-                            <p class="text-slate-900/80 group-hover:text-white text-md mt-1">
-                                {{ $item->deskripsi }}
-                            </p>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
-        </article>
-
 
         <!-- F.A.Q -->
         <article class="mb-24">

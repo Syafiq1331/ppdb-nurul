@@ -85,7 +85,7 @@ class AuthController extends Controller
             if ($role === 'superadmin' || $role === 'admin') {
                 return redirect('/dashboard')->with('success', 'Selamat datang, ' . ucfirst($role) . '!');
             } elseif ($role === 'user') {
-                return redirect('/dashboard')->with('success', 'Selamat datang peserta didik baru di website PPDB Pondok Daarul Huffazh!');
+                return redirect('/dashboard')->with('success', 'Selamat datang peserta didik baru di website PPDB NURUL ADZIM!');
             }
         }
 
