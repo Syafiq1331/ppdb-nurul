@@ -1,0 +1,42 @@
+.custom-toast {
+    position: fixed;
+    bottom: 20px;
+    /* Sesuaikan dengan jarak dari bawah */
+    right: 20px;
+    /* Sesuaikan dengan jarak dari kanan */
+    background-color: #f8d7da;
+    /* Warna background */
+    color: #721c24;
+    /* Warna teks */
+    border: 1px solid #f5c6cb;
+    /* Warna border */
+    border-radius: 0.25rem;
+    /* Border radius */
+    width: 300px;
+    /* Lebar Toast */
+    z-index: 1000;
+    /* Z-index untuk menentukan tingkat kehadiran di halaman */
+}
+
+.custom-toast .toast-header {
+    background-color: #f5c6cb;
+    /* Warna background header */
+    color: #721c24;
+    /* Warna teks header */
+    border-bottom: 1px solid #f8d7da;
+    /* Warna border header */
+    border-radius: 0.25rem 0.25rem 0 0;
+    /* Border radius header */
+    padding: 0.5rem 0.75rem;
+    /* Padding header */
+}
+
+.custom-toast .toast-body {
+    padding: 0.75rem;
+    /* Padding body */
+}
+
+/* Untuk menutup Toast saat tombol close diklik */
+.close {
+    cursor: pointer;
+}

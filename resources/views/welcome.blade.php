@@ -7,7 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <title>Penerimaan Santri Baru | Pondok Pesantren Daarul Huffazh</title>
+    <title>Penerimaan Santri Baru | Yayasan Pendidikan Islam Nurul Adzim</title>
+    <!-- Tambahkan link CDN untuk AOS.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -16,7 +18,7 @@
         }
 
         .backgroundCustom {
-            background-image: url('{{ asset('landingPage/wave.png') }}');
+            background-image: url('{{ asset('landingPage/wave.jpg') }}');
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
@@ -46,9 +48,9 @@
                             <li><a>Kontak</a></li>
                         </ul>
                     </div>
-                    <a class="font-bold normal-case text-xl hidden lg:block">PPDB Pondok Daarul Huffazh</a>
+                    <a class="font-bold normal-case text-xl hidden lg:block" data-aos="fade-left">PPDB Nurul Adzim</a>
                 </div>
-                <div class="navbar-end hidden lg:flex">
+                <div class="navbar-end hidden lg:flex" data-aos="fade-right">
                     <ul class="menu menu-horizontal px-1">
                         <li><a>Home</a></li>
                         <li><a>Brosur</a></li>
@@ -62,95 +64,134 @@
     <main>
         <article class="backgroundCustom h-screen flex items-center justify-start">
             <div class="container mx-auto lg:px-24 px-10 z-10">
-                <h1 class="text-[3rem] font-bold text-slate-900">Penerimaan Santri Baru</h1>
-                <p class="mt-3 mb-2 text-xl text-slate-900">Pondok Pesantren Daarul Huffazh</p>
-                <p class="text-slate-900/70 text-lg">Tahun Ajaran 2024-2025</p>
+                <h1 class="text-[3rem] font-bold text-slate-50" data-aos="zoom-in">Penerimaan Siswa Baru</h1>
+                <p class="mt-3 mb-2 text-xl text-slate-50" data-aos="fade-left">Yayasan Pendidikan Islam Nurul Adzim</p>
+                <p class="text-slate-50 text-lg" data-aos="fade-left">Tahun Ajaran 2024-2025</p>
                 <br>
-                <button class="bg-sky-500 text-white px-6 py-3 rounded-lg">Daftar sekarang</button>
+                <a href="/register">
+                    <button class="bg-sky-500 text-white px-6 py-3 rounded-lg" data-aos="zoom-in">Daftar
+                        sekarang</button>
+                </a>
             </div>
         </article>
 
         <!-- Kenapa memilih kami ?  -->
         <article class="mb-24">
-            <h4 class="my-10 text-center text-slate-700 text-xl">Kenapa Memilih Kami ?</h4>
-            <div class="grid grid-cols-12 gap-x-4 gap-y-4 container mx-auto">
+            <h4 class="my-10 text-center text-slate-700 text-xl" data-aos="zoom-in">Kenapa anak perlu di masukkan ke
+                dalam pondok pesantren
+                ?</h4>
+            <div class="grid grid-cols-12 justify-center gap-x-4 gap-y-4 container mx-auto">
+
+                @foreach ($data as $index => $item)
+                    <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"
+                        class="lg:w-full container mx-auto col-span-12 w-3/4 lg:col-span-3 px-4 py-10 border-b-4 rounded-lg border-{{ $color[$index] }}-500 hover:bg-{{ $color[$index] }}-300 group hover:text-white shadow-lg">
+                        <div
+                            class="border border-{{ $color[$index] }}-100 p-4 w-20 bg-{{ $color[$index] }}-100 group-hover:bg-white">
+                            <box-icon name={{ $item['icon'] }} type="solid" color="{{ $color[$index] }}"
+                                size="md"></box-icon>
+                        </div>
+                        <div class="mt-4 mb-2">
+                            <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">
+                                {{ $item['title'] }}
+                            </h1>
+                            <p class="text-slate-900/80 group-hover:text-white text-md mt-1">{{ $item['desc'] }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
         </article>
 
-        <!-- Pilih jenjang pendaftaran -->
-        <article class="mb-24">
+        <article class="mb-24 mx-auto w-full">
             <h4 class="my-10 text-center text-slate-700 text-xl">Pilih jenjang pendaftaran</h4>
-            <div class="grid grid-cols-12 gap-x-4 gap-y-4 container mx-auto">
-                <!-- TK -->
-                <div
-                    class="lg:w-full mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-emerald-500 hover:bg-emerald-300 group hover:text-white shadow-lg ">
-                    <div
-                        class="border border-emerald-100 p-4 w-20 bg-emerald-100 text-center group-hover:bg-white mx-auto">
-                        <box-icon name='male-sign' color="teal" size="md"></box-icon>
+            <div class="grid grid-cols-12 justify-center gap-x-4 gap-y-4 container mx-auto">
+                @foreach ($jenjang as $index => $item)
+                    <div data-aos="fade-left"
+                        class="lg:w-full container mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-{{ $color[$index] }}-500 hover:bg-{{ $color[$index] }}-300 group hover:text-white shadow-lg ">
+                        <div
+                            class="border border-{{ $color[$index] }}-100 p-4 w-20 bg-{{ $color[$index] }}-100 text-center group-hover:bg-white mx-auto">
+                            <box-icon name='user-circle' type="solid" color="{{ $color[$index] }}"
+                                size="md"></box-icon>
+                        </div>
+                        <div class="mt-4 mb-2">
+                            <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">
+                                {{ $item->name }}
+                            </h1>
+                            <p class="text-slate-900/80 group-hover:text-white text-md mt-1">Kuota tinggal
+                                <strong>{{ $item->kuota }}</strong>
+                                Siswa/siswi
+                            </p>
+                            <br>
+                            <a class="text-{{ $color[$index] }}-500 group-hover:text-slate-900 text-lg font-semibold mt-1 pointer"
+                                href="/register">Daftar
+                            </a>
+                        </div>
                     </div>
+                @endforeach
+            </div>
+        </article>
+
+
+        <!-- Pilih Visi Misi -->
+        <article class="mb-24  mx-auto w-full">
+            <h4 class="my-10 text-center text-slate-700 text-xl">Visi & Misi Yayasan Pendidikan Islam Nurul Adzim</h4>
+            <div class="grid grid-cols-12 justify-center gap-x-4 gap-y-4 container mx-auto">
+                @php
+                    $visiMisi = \App\Models\VisiMisi::first();
+                @endphp
+                <div data-aos="fade-left"
+                    class="lg:w-full container mx-auto col-span-12 w-3/4 lg:col-span-6 text-center px-4 py-10 border-b-4 rounded-lg border-blue-500 hover:bg-blue-300 group hover:text-white shadow-lg">
                     <div class="mt-4 mb-2">
-                        <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">MTs Putra</h1>
-                        <p class="text-slate-900/80 group-hover:text-white text-md mt-1">Kuota terbatas</p>
-                        <br>
-                        <a class="text-emerald-500 group-hover:text-slate-900 text-lg font-semibold mt-1 pointer">Daftar
-                        </a>
+
+                        <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">
+                            Visi Yayasan Pendidikan Islam Nurul Adzim
+                        </h1>
+                        <p class="text-slate-900/80 group-hover:text-white text-md mt-1">{{ $visiMisi->visi }}</p>
                     </div>
                 </div>
-                <!-- SD -->
-                <div
-                    class="lg:w-full mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-green-500 hover:bg-green-300 group hover:text-white shadow-lg ">
-                    <div
-                        class="border border-emerald-100 p-4 w-20 bg-emerald-100 text-center group-hover:bg-white mx-auto">
-                        <box-icon name='male-sign' color="teal" size="md"></box-icon>
-                    </div>
+
+                <div data-aos="fade-left"
+                    class="lg:w-full container mx-auto col-span-12 w-3/4 lg:col-span-6 text-center px-4 py-10 border-b-4 rounded-lg border-green-500 hover:bg-green-300 group hover:text-white shadow-lg">
                     <div class="mt-4 mb-2">
-                        <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">MTs Putra</h1>
-                        <p class="text-slate-900/80 group-hover:text-white text-md mt-1">Kuota terbatas</p>
-                        <br>
-                        <a class="text-green-500 group-hover:text-slate-900 text-lg font-semibold mt-1 pointer">Daftar
-                        </a>
-                    </div>
-                </div>
-                <!-- SMP -->
-                <div
-                    class="lg:w-full mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-blue-500 hover:bg-blue-300 group hover:text-white shadow-lg">
-                    <div
-                        class="border border-emerald-100 p-4 w-20 bg-emerald-100 text-center group-hover:bg-white mx-auto">
-                        <box-icon name='male-sign' color="blue" size="md"></box-icon>
-                    </div>
-                    <div class="mt-4 mb-2">
-                        <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">MTs Putra</h1>
-                        <p class="text-slate-900/80 group-hover:text-white text-md mt-1">Kuota terbatas</p>
-                        <br>
-                        <a class="text-blue-500 group-hover:text-slate-900 text-lg font-semibold mt-1 pointer">Daftar
-                        </a>
-                    </div>
-                </div>
-                <!-- MTS -->
-                <div
-                    class="lg:w-full mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-teal-500 hover:bg-teal-300 group hover:text-white shadow-lg">
-                    <div
-                        class="border border-emerald-100 p-4 w-20 bg-emerald-100 text-center group-hover:bg-white mx-auto">
-                        <box-icon name='male-sign' color="teal" size="md"></box-icon>
-                    </div>
-                    <div class="mt-4 mb-2">
-                        <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">MTs Putra</h1>
-                        <p class="text-slate-900/80 group-hover:text-white text-md mt-1">Kuota terbatas</p>
-                        <br>
-                        <a class="text-emerald-500 group-hover:text-slate-900 text-lg font-semibold mt-1 pointer">Daftar
-                        </a>
+
+                        <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">
+                            Misi Yayasan Pendidikan Islam Nurul Adzim
+                        </h1>
+                        <p class="text-slate-900/80 group-hover:text-white text-md mt-1">{{ $visiMisi->misi }}</p>
                     </div>
                 </div>
 
             </div>
         </article>
 
-        <!-- Galery -->
-        <article class="mb-24">
-            <p class="mt-10 mb-2 text-center text-slate-700 text-xl">Galery</p>
-            <h3 class="text-center text-slate-900 text-3xl font-semibold">Foto-foto kegiatan di pondok</h3>
+        <!-- Profile Guru -->
+        <article class="mb-24  mx-auto w-full">
+            <h4 class="my-10 text-center text-slate-700 text-xl">Profile Guru Pengajar</h4>
+            <div class="grid grid-cols-12 justify-center gap-x-4 gap-y-4 container mx-auto">
+                @foreach ($profileGuru as $index => $item)
+                    <div data-aos="fade-right"
+                        class="lg:w-full container mx-auto col-span-12 w-3/4 lg:col-span-3 text-center px-4 py-10 border-b-4 rounded-lg border-{{ $color[$index] }}-500 hover:bg-{{ $color[$index] }}-300 group hover:text-white shadow-lg ">
+
+                        <img src="{{ $item->foto_profile }}" alt="">
+
+                        <div class="mt-4 mb-2">
+                            <h1 class="text-slate-900 group-hover:text-white font-semibold text-xl">
+                                {{ $item->nama_depan }} {{ $item->nama_belakang }}
+                            </h1>
+                            <p class="text-slate-900/80 group-hover:text-white text-md mt-1">
+                                <strong>{{ $item->posisi_pekerjaan }}</strong>
+                            </p>
+                            <p class="text-slate-900/80 group-hover:text-white text-md mt-1">
+                                {{ $item->deskripsi }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
         </article>
+
 
         <!-- F.A.Q -->
         <article class="mb-24">
@@ -159,7 +200,7 @@
             <div class="grid grid-cols-12 gap-x-4 container mx-auto px-12 lg:px-0 mt-10">
                 <div class="lg:col-span-6 col-span-12 flex flex-col gap-y-2 my-1">
                     <div class="collapse collapse-plus bg-base-200">
-                        <input type="radio" name="my-accordion-3" checked="checked" />
+                        <input type="radio" name="my-accordion-3" />
                         <div class="collapse-title text-xl font-medium">
                             Bagaimana cara mendaftar?
                         </div>
@@ -175,17 +216,14 @@
                         </div>
                         <div class="collapse-content">
                             <ul class="list-disc pl-5">
-                                <li class="mb-2">Ijazah/SKL</li>
-                                <li class="mb-2">KTP Orang Tua/Wali</li>
-                                <li class="mb-2">KIA/KTP Anak</li>
-                                <li class="mb-2">Kartu Keluarga</li>
-                                <li class="mb-2">Akte Kelahiran</li>
-                                <li class="mb-2">Surat Keterangan Baik dari sekolah sebelumnya</li>
-                                <li class="mb-2">
-                                    Berkas Pendaftaran tambahan, <a class="text-blue-500"
-                                        href="link-ke-berkas-pendaftaran">download
-                                        disini</a>
+                                <li class="mb-2">Surat Keterangan Lulus (SKL), FC. Ijazah & SKHU legalisir 2 lembar
                                 </li>
+                                <li class="mb-2">FC. Akta Kelahiran & Kartu Keluarga 1 lembar</li>
+                                <li class="mb-2">Foto warna latar merah untuk 2x3, 3x4 masing-masing 3 lembar</li>
+                                <li class="mb-2">Surat keterangan berprestasi ranking 1,2,3 dari sekolah asal dengan
+                                    lampiran FC. raport terakhir untuk <strong>BEASISWA</strong></li>
+                                <li class="mb-2">Surat keterangan dari desa setempat dan FC. KIP bagi calon
+                                    siswa-siwa kategori yatim dan dhuafa untuk program BSM/PIP</li>
                             </ul>
 
 
@@ -204,16 +242,17 @@
                 </div>
                 <div class="lg:col-span-6 col-span-12 flex flex-col gap-y-2 my-1">
                     <div class="collapse collapse-plus bg-base-200">
-                        <input type="radio" name="my-accordion-3" checked="checked" />
+                        <input type="radio" name="my-accordion-3" />
                         <div class="collapse-title text-xl font-medium">
                             Berapa biaya yang harus dikeluarkan?
                         </div>
                         <div class="collapse-content">
                             <ul class="list-disc pl-5">
-                                <li class="mb-2">Biaya Pendaftaran Rp.</li>
-                                <li class="mb-2">Biaya Santri Baru Rp.</li>
-                                <li class="mb-2">Biaya Bulanan Putra Rp.</li>
-                                <li class="mb-2">Biaya Bulanan Putri Rp.</li>
+                                <li class="mb-2">Biaya pendaftaran dan keg. Ta'aruf Rp. 100.000</li>
+                                <li class="mb-2">Dana Sumbangan Pendampingan BOP (DSP) Rp. 1.200.000</li>
+                                <li class="mb-2">Seragam batik, koko dan kaos olahraga Rp. 300.000</li>
+                                <li class="mb-2">Buku tahsin dan map raport/ijazah Rp. 50.000</li>
+                                <li class="mb-2">Infaq perawatan/pemeliharaan sarpras Rp. 150.000</li>
                             </ul>
                         </div>
                     </div>
@@ -246,24 +285,24 @@
             <h3 class="text-center text-slate-900 text-3xl font-semibold mb-12">Kontak Kami</h3>
             <div class="grid grid-cols-12 gap-x-4 container mx-auto px-12">
                 <div class="lg:col-span-6 col-span-12 grid grid-cols-12">
-                    <div class="p-4 col-span-6">
+                    <div class="p-4 lg:col-span-6 col-span-12">
                         <box-icon name='map' color="teal" size="lg"></box-icon>
                         <p class="font-semibold text-lg my-2 text-slate-900">Alamat</p>
                         <p class="text-sm text-slate-900/80">Jl. Nusa Indah, Suliliran Baru, Paser, Kalimantan Timur
                         </p>
                     </div>
-                    <div class="p-4 col-span-6">
+                    <div class="p-4 lg:col-span-6 col-span-12">
                         <box-icon name='whatsapp' type="logo" color="teal" size="lg"></box-icon>
                         <p class="font-semibold text-lg my-2 text-slate-900">Chat</p>
                         <p class="text-sm text-slate-900/80">0822-5080-3144 (Putra) <br>
                             0856-5410-9976 (Putri)</p>
                     </div>
-                    <div class="p-4 col-span-6">
+                    <div class="p-4 lg:col-span-6 col-span-12">
                         <box-icon name='envelope' color="teal" size="lg"></box-icon>
                         <p class="font-semibold text-lg my-2 text-slate-900">Email</p>
-                        <p class="text-sm text-slate-900/80">psb@daarulhuffazh.com</p>
+                        <p class="text-sm text-slate-900/80">psb@nuruladzim.com</p>
                     </div>
-                    <div class="p-4 col-span-6">
+                    <div class="p-4 lg:col-span-6 col-span-12">
                         <box-icon name='time-five' color="teal" size="lg"></box-icon>
                         <p class="font-semibold text-lg my-2 text-slate-900">Pelayanan</p>
                         <p class="text-sm text-slate-900/80">Senin - Jumat 08.00 - 16.00</p>
@@ -279,9 +318,25 @@
         </article>
     </main>
     <footer class="text-center py-4 bg-sky-300 w-full text-slate-900">
-        <p>Copyright © 2023 Pondok Pesantren Daarul Huffazh</p>
+        <p>Copyright © 2023 PPDB Yayasan Pendidikan Islam Nurul Adzim</p>
     </footer>
-    <script src="https://your-eos-library-url.js"></script>
+    <!-- Modal -->
+    <div id="galleryModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 hidden">
+        <div class="flex items-center justify-center h-full">
+            <div id="modalContent" class="bg-white p-8 max-w-2xl rounded-lg overflow-y-auto relative">
+                {{-- Modal content will be dynamically added here --}}
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-700 cursor-pointer">&#215;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS.js
+        AOS.init();
+    </script>
+
 </body>
+
 
 </html>

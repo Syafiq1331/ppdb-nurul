@@ -12,12 +12,13 @@ class CreateWaliSantriTable extends Migration
     {
         Schema::create('wali_santri', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('santri_id')->constrained('santri')->onDelete('cascade');
-            $table->string('nama_ayah');
-            $table->string('nama_ibu');
-            $table->string('pekerjaan_ibu');
-            $table->string('pekerjaan_ayah');
-            $table->text('alamat');
+            $table->foreignId('santri_id')->constrained('siswa')->onDelete('cascade');
+            $table->string('nama_ayah')->nullable();
+            $table->string('nama_ibu')->nullable();
+            $table->string('pekerjaan_ibu')->nullable();
+            $table->string('pekerjaan_ayah')->nullable();
+            $table->text('alamat')->nullable();
+            $table->integer('no_whatsapp')->nullable();
             $table->timestamps();
         });
     }

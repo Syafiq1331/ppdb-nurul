@@ -8,19 +8,20 @@ use Illuminate\Database\Seeder;
 
 class SantriSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         Santri::create([
-            'nama' => 'Calvin',
+            'nama_lengkap' => 'Muhammad Calvin',
+            'username' => 'Calvin',
             'jenis_kelamin' => 'Laki-Laki',
-            'tempat_lahir' => 'Tempat Lahir Santri',
+            'tempat_lahir' => 'Bandung',
             'tanggal_lahir' => '2000-01-01',
             'nisn' => '1234567890',
             'asal_sekolah' => 'SMA Negeri 1',
             'alamat' => 'Alamat Sekolah Asal',
+            'jenjang_id' => 1,
+            'status_bayar' => 'belum bayar',
+            'score' => 10,
         ]);
     }
 }

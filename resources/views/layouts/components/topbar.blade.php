@@ -1,26 +1,39 @@
-<!-- topbar.blade.php -->
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-    <!-- Sidebar Toggle (Topbar) -->
-    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
-    </button>
-    <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto">
-        <div class="topbar-divider d-none d-sm-block"></div>
-        <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                {{-- <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->username }}</span> --}}
-                <img class="img-profile rounded-circle" src="{{ asset('assets/img/undraw_profile.svg') }}">
+<nav class="navbar navbar-expand-lg main-navbar">
+    <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                        class="fas fa-search"></i></a></li>
+        </ul>
+    </form>
+    <ul class="navbar-nav navbar-right">
+        <li>
+            <a href="#" class="nav-link nav-link-lg nav-link-user">
+                {{-- <img alt="image" src="{{ asset('assets/img/avatar/avatar-3.png') }}" class="rounded-circle mr-1"> --}}
+                @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin')
+                    <img class="rounded-circle mr-1" src="{{ asset('assets/img/avatar/avatar-3.png') }}"
+                        alt="Foto Profil Default">
+                @else
+                    @if (auth()->user()->santri)
+                        <img class="rounded-circle mr-1"
+                            src="{{ asset('storage/photosSantri/' . auth()->user()->santri->photo) }}"
+                            alt="Foto Profil">
+                    @else
+                        <img class="rounded-circle mr-1" src="{{ asset('assets/img/avatar/avatar-3.png') }}"
+                            alt="Foto Profil Default">
+                    @endif
+                @endif
+
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin')
+                        Admin
+                    @else
+                        {{ auth()->user()->santri->nama_lengkap }}
+                    @endif
+                </span>
+
+
             </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-            </div>
         </li>
     </ul>
 </nav>

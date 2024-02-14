@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password123'),
             'created_at' => now(),
             'updated_at' => now(),
+            'santri_id' => 1,
         ]);
 
         // Buat beberapa user lainnya
@@ -29,15 +30,17 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password123'),
             'created_at' => now(),
             'updated_at' => now(),
+            'santri_id' => 1,
         ]);
 
         DB::table('users')->insert([
             'name' => 'User',
-            'email' => 'user@example.com',
+            'email' => 'user@gmail.com',
             'role' => 'user',
             'password' => Hash::make('password123'),
             'created_at' => now(),
             'updated_at' => now(),
+            'santri_id' => 1,
         ]);
 
         // Tambahkan data lainnya sesuai kebutuhan
