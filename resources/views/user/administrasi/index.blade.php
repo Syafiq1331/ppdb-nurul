@@ -25,7 +25,9 @@
                                         <tr>
                                             <td>{{ $santri->id }}</td>
                                             <td>{{ $santri->nama_lengkap }}</td>
-                                            <td>{{ $santri->bukti_pembayaran }}</td>
+                                            <td>
+                                                <img class="img-thumbnail w-75" src="{{ asset('storage/buktiTransfer/' . $santri->bukti_pembayaran) }}" alt="Foto Profil">
+                                            </td>
                                             <td>{{ $santri->status_bayar }}</td>
                                             <td>
                                                 @if ($santri->status_bayar == 'Belum Bayar')

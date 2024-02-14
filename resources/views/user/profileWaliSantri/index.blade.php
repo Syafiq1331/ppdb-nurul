@@ -1,15 +1,15 @@
-@extends('layouts.admin', ['title' => 'Profile Wali Calon Santri'])
+@extends('layouts.admin', ['title' => 'Profile Wali Calon Siswa'])
 
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Profile Wali Santri Calon Calon Santri</h1>
+            <h1 class="h3 mb-0 text-gray-800">Profile Wali Santri Calon Siswa</h1>
         </div>
         <div class="row">
 
             <div class="d-flex justify-content-end w-100">
-                <a href="{{ '/user/profile-wali-santri/' . auth()->user()->santri->waliSantri->id . '/edit' }}">
+                <a href="{{ '/user/profile-wali-siswa/' . auth()->user()->santri->waliSantri->id . '/edit' }}">
                     <button class="btn btn-primary mb-2">
                         <i class="fas fa-fw fa-edit pr-2"></i>
                         Edit Data

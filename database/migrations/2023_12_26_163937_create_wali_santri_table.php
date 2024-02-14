@@ -18,7 +18,7 @@ class CreateWaliSantriTable extends Migration
             $table->string('pekerjaan_ibu')->nullable();
             $table->string('pekerjaan_ayah')->nullable();
             $table->text('alamat')->nullable();
-            $table->integer('no_whatsapp')->nullable();
+            $table->string('no_whatsapp')->nullable();
             $table->timestamps();
         });
     }

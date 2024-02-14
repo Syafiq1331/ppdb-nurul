@@ -20,6 +20,7 @@ class WaliSantriSeeder extends Seeder
                 'alamat' => 'Jl. Wali No. 456, Jakarta',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'no_whatsapp' => '086579123132',
             ],
             // Tambahkan data lainnya sesuai kebutuhan
         ]);

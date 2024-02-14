@@ -66,6 +66,6 @@ class ProfileSantriController extends Controller
         $santri->save();
 
         // Redirect ke halaman profil dengan pesan sukses
-        return redirect()->route('profile-santri.index')->with('success', 'Data berhasil diperbarui.');
+        return redirect()->route('profile-siswa.index')->with('success', 'Data berhasil diperbarui.');
     }
 }

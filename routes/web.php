@@ -87,10 +87,10 @@ Route::post('/questions', [QuestionController::class, 'store'])->name('questions
 
 // Guest Zone
 Route::middleware(['auth'])->prefix('user')->group(function () {
-    Route::resource('profile-santri', ProfileSantriController::class);
+    Route::resource('profile-siswa', ProfileSantriController::class);
     Route::get('/pembayaran', [SantriController::class, 'pembayaranIndex']);
     Route::post('/pembayaran', [SantriController::class, 'pembayaranProses']);
-    Route::resource('profile-wali-santri', ProfileWaliSantriController::class);
+    Route::resource('profile-wali-siswa', ProfileWaliSantriController::class);
     Route::resource('administrasi', AdministrasiController::class);
     Route::get('/exams', [ExamController::class, 'index']);
     Route::get('/exams/{exam}/start', [ExamUserController::class, 'startExam'])->name('exams.start');

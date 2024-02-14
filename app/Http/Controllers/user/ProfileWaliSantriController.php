@@ -50,6 +50,6 @@ class ProfileWaliSantriController extends Controller
         $waliSantri->update($validatedData);
 
         // Redirect to a specific route or return a response as needed
-        return redirect()->route('profile-wali-santri.index')->with('success', 'Profile berhasil di update');
+        return redirect()->route('profile-wali-siswa.index')->with('success', 'Profile berhasil di update');
     }
 }

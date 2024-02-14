@@ -1,16 +1,16 @@
-@extends('layouts.admin', ['title' => 'Edit Profile Calon Santri'])
+@extends('layouts.admin', ['title' => 'Edit Profile Calon Siswa'])
 
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Profile Data Diri Calon Santri</h1>
+            <h1 class="h3 mb-0 text-gray-800">Profile Data Diri Calon Siswa</h1>
         </div>
 
         <div class="row">
             <div class="w-100 card">
                 <div class="row card-body">
-                    <form method="POST" action="{{ route('profile-santri.update', auth()->user()->santri->id) }}"
+                    <form method="POST" action="{{ route('profile-siswa.update', auth()->user()->santri->id) }}"
                         enctype="multipart/form-data" class="w-100">
                         @csrf
                         @method('PUT')

@@ -67,10 +67,10 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                             class="fas fa-columns"></i>
-                        <span>Data Santri</span></a>
+                        <span>Data Siswa</span></a>
                     <ul class="dropdown-menu">
-                        <li><a class="nav-link" href="/user/profile-santri">Profile Calon Santri</a></li>
-                        <li><a class="nav-link" href="/user/profile-wali-santri">Profile Wali Santri</a></li>
+                        <li><a class="nav-link" href="/user/profile-siswa">Profile Calon Siswa</a></li>
+                        <li><a class="nav-link" href="/user/profile-wali-siswa">Profile Wali Siswa</a></li>
                     </ul>
                 </li>
 
